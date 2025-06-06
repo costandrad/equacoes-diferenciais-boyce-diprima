@@ -153,6 +153,99 @@ Em cada um dos Problemas 1 a 4, desenhe um campo de direções para a equação 
       \end{tikzpicture}
     \end{center}
   \fimSol
+  %%%% Fim do Problema 4
+\end{enumerate}
+
+Em cada um dos Problemas 5 e 6, escreva uma equação diferencial da forma $dy/dt = ay + b$ cujas soluções têm o comportamento pedido quando $t \rightarrow \infty$.
+
+\begin{enumerate}[resume]
+  \item Todas as soluções se aproximam de $y = 2/3$.\\
+  \iniSol
+  Consideremos eqações diferenciais na forma $y^{\prime} = ay + b$. A solução de equilíbrio ($y^{*}$) é dada por:
+  $$
+  \dfrac{dy}{dt} (y^{*}) \equiv 0 \Rightarrow ay^{*} + b = 0 \Rightarrow y^{*} = -\dfrac{b}{a}
+  $$
+  Por outro lado, para determinarmos se as soluções aproximan-se ou afastam-se de $y^{*}$ quando $t \rightarrow \infty$, devemos observar o sinal de $\dfrac{d y^{\prime}}{dy}$ em $y^{*}$. Se $\dfrac{d y^{\prime}}{dy} (y^{*}) < 0$, as soluções tendem à solução de equilíbrio depois de um longo tempo. Caso, $\dfrac{d y^{\prime}}{dy} (y^{*}) > 0$, as soluções afastam-se.
+  %%
+  Portanto, para resolver o problema em questão, temos as seguintes condições:
+  $$
+  \begin{cases}
+    y^{*} = -\dfrac{b}{a}\\
+    \dfrac{d y^{\prime}}{dy} (y^{*}) = a < 0
+  \end{cases}
+  \Rightarrow 
+  \begin{cases}
+    \dfrac{b}{a} = -\dfrac{2}{3}\\
+    a < 0
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+    b = -\dfrac{2}{3}a\\
+    a < 0
+  \end{cases}
+  $$
+  Fazendo $a = -3$ e $b = 2$, obtemos uma equação possível satisfazendo às condições acima: $$y^{\prime} = 2 - 3y$$
+  O campo de direções pe mostrado abaixo:
+      \begin{center}
+      \begin{tikzpicture}
+        \def\yprime{2-3*y}
+        \def\length{sqrt(1 +(\yprime)^2)}
+        \begin{axis}[
+          view      = {0}{90},
+          domain    = 0:4.75,
+          y domain  = -1:2,
+          samples  = 12,
+          xlabel=$y$, ylabel=$y^{\prime}$,
+          clip=false
+        ]
+        \addplot3 [mainColor!50, quiver={u={(1/\length)}, v={(\yprime)/(\length)}, scale arrows=0.2, every arrow/.append style={-latex}}] (x,y,0);
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {2/3};
+        \node[anchor=east] at (axis cs: 0, 2/3) {$\dfrac{2}{3}$};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+  \fimSol
+  %%%% Fim do Problema 5
+  \item Todas as soluções se afastam de $y = 2$.\\
+  \iniSol
+  Nesse caso, devemos ter:
+  $$
+  \begin{cases}
+    y^{*} = - \dfrac{b}{a} = 2\\
+    \dfrac{d y^{\prime}}{dy} (y^{*}) = a > 0
+  \end{cases}
+  \Rightarrow 
+  \begin{cases}
+    \dfrac{b}{a} = -2\\
+    a > 0
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+    b = -2a\\
+    a > 0
+  \end{cases}
+  $$
+  Uma equação possível satisfazendo às condições acima é $$y^{\prime} = -2 + y$$
+  O campo de direções pe mostrado abaixo:
+      \begin{center}
+      \begin{tikzpicture}
+        \def\yprime{-2+y}
+        \def\length{sqrt(1 +(\yprime)^2)}
+        \begin{axis}[
+          view      = {0}{90},
+          domain    = 0:4.75,
+          y domain  = 0:4,
+          samples  = 12,
+          xlabel=$y$, ylabel=$y^{\prime}$,
+          clip=false
+        ]
+        \addplot3 [mainColor!50, quiver={u={(1/\length)}, v={(\yprime)/(\length)}, scale arrows=0.2, every arrow/.append style={-latex}}] (x,y,0);
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {2};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+  \fimSol
+  %%%% Fim do Problema 6
 \end{enumerate}
 
 

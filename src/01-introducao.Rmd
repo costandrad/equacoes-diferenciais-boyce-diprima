@@ -156,7 +156,7 @@ Em cada um dos Problemas 1 a 4, desenhe um campo de direções para a equação 
   %%%% Fim do Problema 4
 \end{enumerate}
 
-Em cada um dos Problemas 5 e 6, escreva uma equação diferencial da forma $dy/dt = ay + b$ cujas soluções têm o comportamento pedido quando $t \rightarrow \infty$.
+\noindent Em cada um dos Problemas 5 e 6, escreva uma equação diferencial da forma $dy/dt = ay + b$ cujas soluções têm o comportamento pedido quando $t \rightarrow \infty$.
 
 \begin{enumerate}[resume]
   \item Todas as soluções se aproximam de $y = 2/3$.\\
@@ -246,6 +246,163 @@ Em cada um dos Problemas 5 e 6, escreva uma equação diferencial da forma $dy/d
     \end{center}
   \fimSol
   %%%% Fim do Problema 6
+\end{enumerate}
+
+\noindent Em cada um dos Problemas 7 a 19, desenhe um campo de direções para a equação diferencial dada. Baseado no campo de direções, determine o comportamento de $y$ quanto $t \rightarrow \infty$. Se esse comportamento depender do valor inicial de $y$ em $t = 0$, descreva essa dependência. Note que, nesses problemas, as equações diferenciais não são da forma $y^{\prime} =ay+b$, e o comportamento das soluções é um pouco mais complicado que o das soluções das equações do texto.
+
+\begin{enumerate}[resume]
+  \item $y^{\prime} = y (4 - y)$\\
+  \iniSol
+    Soluções de equilíbrio:
+    \begin{align*}
+      y^{\prime} (y^{*}) = 0 \Rightarrow y (4 - y) = 0 \Rightarrow
+      \begin{cases}
+        y = 0\\
+        4 - y = 0 
+      \end{cases}
+      \Rightarrow
+      \begin{cases}
+        y^{*} = 0\\
+        y^{*} = 4
+      \end{cases}
+    \end{align*}
+      \begin{center}
+      \begin{tikzpicture}
+        \def\yprime{y*(4 - y)}
+        \def\length{sqrt(1 +(\yprime)^2)}
+        \begin{axis}[
+          view      = {0}{90},
+          domain    = 0:4.75,
+          y domain  = -1:6,
+          samples  = 12,
+          xlabel=$y$, ylabel=$y^{\prime}$,
+          clip=false
+        ]
+        \addplot3 [mainColor!50, quiver={u={(1/\length)}, v={(\yprime)/(\length)}, scale arrows=0.3, every arrow/.append style={-latex}}] (x,y,0);
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {0};
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {4};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+    A solução $y^{*} = 0$ é instável, no sentido que para condições iniciais próximas, as soluções para afastam-se dela com o passar do tempo. Por outro lado, a solução $y^{*} = 4$ é estável, ou seja, soluções pŕoximas de $y^{*}$ tendem para ela após algum tempo. Observando o campo de direções acima, concluímos que:
+    \begin{itemize}
+      \item Para $y(t = 0) < 0$ , as as soluções tendem a $-\infty$;
+      \item Para $0 < y(t=0) < 4$, as soluções afastam-se de $y = 0$ e crescem, aproximando-se de $y = 4$;
+      \item Para $y(t = 0) 4 0$, as soluções decrescem, aprosimando-se de $y = 4$.
+    \end{itemize}
+  \fimSol
+  %%%% Fim do Problema 7
+  \item $y^{\prime} = -y (5 - y)$\\
+  \iniSol
+    Soluções de equilíbrio:
+    \begin{align*}
+      y^{\prime} (y^{*}) = 0 \Rightarrow -y (5 - y) = 0 \Rightarrow
+      \begin{cases}
+        y = 0\\
+        5 - y = 0 
+      \end{cases}
+      \Rightarrow
+      \begin{cases}
+        y^{*} = 0\\
+        y^{*} = 5
+      \end{cases}
+    \end{align*}
+      \begin{center}
+      \begin{tikzpicture}
+        \def\yprime{-y*(5 - y)}
+        \def\length{sqrt(1 +(\yprime)^2)}
+        \begin{axis}[
+          view      = {0}{90},
+          domain    = 0:4.75,
+          y domain  = -1:7,
+          samples  = 12,
+          xlabel=$y$, ylabel=$y^{\prime}$,
+          clip=false
+        ]
+        \addplot3 [mainColor!50, quiver={u={(1/\length)}, v={(\yprime)/(\length)}, scale arrows=0.3, every arrow/.append style={-latex}}] (x,y,0);
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {0};
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {5};
+        \node[anchor=east] at (axis cs: 0, 5) {$5$};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+    A solução de equilíbrio $y^{*} = 0$ é estável enquanto $y^{*} = 5$ é instável. Observando o campo de direções acima, concluímos que:
+    \begin{itemize}
+      \item Para $y(t = 0) < 0$ , as as soluções crescem, aproximando-se de $y^{*} = 0$;
+      \item Para $0 < y(t=0) < 5$, as soluções afastam-se de $y = 5$ e diminuem, aproximando-se de $y^{*} = 0$;
+      \item Para $y(t = 0) > 5$, as soluções crescem indefinidamente.
+    \end{itemize}
+  \fimSol
+  %%%% Fim do Problema 8
+  \newpage
+  \item $y^{\prime} = y^2$\\
+  \iniSol
+    Soluções de equilíbrio:
+    \begin{align*}
+      y^{\prime} (y^{*}) = 0 \Rightarrow y^2 = 0 \Rightarrow y^{*} = 0
+    \end{align*}
+      \begin{center}
+      \begin{tikzpicture}
+        \def\yprime{y^2}
+        \def\length{sqrt(1 +(\yprime)^2)}
+        \begin{axis}[
+          view      = {0}{90},
+          domain    = 0:4.75,
+          y domain  = -3:3,
+          samples  = 12,
+          xlabel=$y$, ylabel=$y^{\prime}$,
+          clip=false
+        ]
+        \addplot3 [mainColor!50, quiver={u={(1/\length)}, v={(\yprime)/(\length)}, scale arrows=0.3, every arrow/.append style={-latex}}] (x,y,0);
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {0};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+    Para $y(t = 0) < y^{*} = 0$, as soluções crescem aprosimando-se desta solução de equilíbrio. Por outro lado, para $y(t = 0) > y^{*} = 0$, as soluções afastam-se da solução de equilíbrio, crescendo indefinidamente.
+  \fimSol
+  %%%% Fim do Problema 9
+  \item $y^{\prime} = y (y - 2)^2$\\
+  \iniSol
+    Soluções de equilíbrio:
+    \begin{align*}
+      y^{\prime} (y^{*}) = 0 \Rightarrow y (y - 2)^2 = 0 \Rightarrow
+      \begin{cases}
+        y = 0\\
+        y - 2 = 0 
+      \end{cases}
+      \Rightarrow
+      \begin{cases}
+        y^{*} = 0\\
+        y^{*} = 2
+      \end{cases}
+    \end{align*}
+      \begin{center}
+      \begin{tikzpicture}
+        \def\yprime{y*(y - 2)^2}
+        \def\length{sqrt(1 +(\yprime)^2)}
+        \begin{axis}[
+          view      = {0}{90},
+          domain    = 0:4.75,
+          y domain  = -1:4,
+          samples  = 12,
+          xlabel=$y$, ylabel=$y^{\prime}$,
+          clip=false
+        ]
+        \addplot3 [mainColor!50, quiver={u={(1/\length)}, v={(\yprime)/(\length)}, scale arrows=0.3, every arrow/.append style={-latex}}] (x,y,0);
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {0};
+        \addplot[mainColor, samples=5, ultra thick, no markers, domain=0:5] {2};
+        \node[anchor=east] at (axis cs: 0, 5) {$5$};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+    Observando o campo de direções acima, concluímos que:
+    \begin{itemize}
+      \item Para $y(t = 0) < 0$ , as as soluções decrescem indefinidamente, afastando-se de $y^{*} = 0$;
+      \item Para $0 < y(t=0) < 2$, as soluções afastam-se de $y = 0$ e crescem, aproximando-se de $y^{*} = 2$;
+      \item Para $y(t = 0) > 2$, as soluções crescem indefinidamente.
+    \end{itemize}
+  \fimSol
+  %%%% Fim do Problema 10
 \end{enumerate}
 
 
